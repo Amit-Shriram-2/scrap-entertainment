@@ -2,3 +2,5 @@ requests==2.31.0
 urllib3==2.1.0
 lxml==5.1.0
 beautifulsoup4==4.12.3
+tensorflow==2.9.1
+transformers==4.39.3
