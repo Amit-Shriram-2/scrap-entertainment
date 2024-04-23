@@ -1,0 +1,34 @@
+name: Run model.py Every 30 Minutes
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+   
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+          cache: 'pip' # caching pip dependencies
+  
+      - name: Install dependencies
+        uses: py-actions/py-dependency-install@v2
+        with:
+          path: "requirements.txt"
+          
+
+      - name: Run model.py
+        run: python model.py
+      - name: Debug Info
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Contents of the current directory: $(ls)"
+          echo "Path to Python: $(which python)"
