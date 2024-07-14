@@ -290,7 +290,7 @@ def generateModel(list_headline, list_newsdes, list_link):
     global count
     summary_headline =  summrize(list_headline)
     summary_des = summrize(list_newsdes[:1024])
-    url = 'https://yashkassa.pythonanywhere.com/news/addsummary'
+    url = 'https://quicksolutions.pythonanywhere.com/news/addsummary'
     headers = {'Content-Type': 'application/json', 'Accept':'application/json'}
     data = {"link": list_link, "summary_headline": summary_headline[0]['summary_text'], "summary_des":summary_des[0]['summary_text'], "type":"domain_wise"}
     response = requests.post(url, json=json.dumps(data), headers=headers)
@@ -299,7 +299,7 @@ def generateModel(list_headline, list_newsdes, list_link):
     
 
 def postdata(list_link, list_headline, list_newsdes, list_img, list_credit, list_domain):
-    url = 'https://yashkassa.pythonanywhere.com/news/singlepostnewsDomainwise'
+    url = 'https://quicksolutions.pythonanywhere.com/news/singlepostnewsDomainwise'
     headers = {'Content-Type': 'application/json', 'Accept':'application/json'}
     data = {"links": list_link, "headlines": list_headline, "description":list_newsdes, "images":list_img, "credits":list_credit, "domains":list_domain}
     response = requests.post(url, json=json.dumps(data), headers=headers)
